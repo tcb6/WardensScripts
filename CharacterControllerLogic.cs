@@ -6,8 +6,8 @@ public class CharacterControllerLogic : MonoBehaviour {
 	private Animator animator;
 
 	private float speed = 0.0f;
-	private float playerSpeed = 2.0f;
-	private float playerAttacking = 0.0f;
+	private float attack = 0.0f;
+	public float playerSpeed = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +34,15 @@ public class CharacterControllerLogic : MonoBehaviour {
 				speed = 0.0f;
 				animator.SetFloat("Speed", speed);
 				}
+
+			if(Input.GetMouseButtonDown(0)){
+				attack = 1.0f;
+				animator.SetFloat("Attacking", attack);
+			}
+			else{
+				attack = 0.0f;
+				animator.SetFloat("Attacking", attack);
+			}
 
 			if(speed > 0.5f){
 				if(Input.GetKey(KeyCode.W)){
